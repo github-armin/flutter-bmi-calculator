@@ -13,53 +13,64 @@ class InputScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
 //        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(kScreenPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: CardWrapper(
+          Expanded(
+            flex: 6,
+            child: Container(
+              padding: EdgeInsets.all(kScreenPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: CardWrapper(
 //                    child: Column(),
-                        bgColor: kCardWrapperBgColor,
-                      ),
-                    ),
-                    Expanded(
-                      child: CardWrapper(
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                        Expanded(
+                          child: CardWrapper(
 //                    child: Column(),
-                        bgColor: kCardWrapperBgColor,
-                      ),
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: CardWrapper(
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: CardWrapper(
 //                    child: Column(),
-                        bgColor: kCardWrapperBgColor,
-                      ),
-                    ),
-                    Expanded(
-                      child: CardWrapper(
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                        Expanded(
+                          child: CardWrapper(
 //                    child: Container(),
-                        bgColor: kCardWrapperBgColor,
-                      ),
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
-          Container(
+          Expanded(
+            flex: 1,
+            child: Container(
               color: kSubmitButtonColor,
-              height: kSubmitButtonHeight,
-              margin: EdgeInsets.only(top: kSubmitButtonTopMargin),
+              margin: EdgeInsets.only(top: kScreenPadding),
               child: Text('placeholder for a button')
+            ),
           ),
         ],
       ),
