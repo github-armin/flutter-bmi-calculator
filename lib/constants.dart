@@ -19,3 +19,4 @@ const Color kCardButtonBgColorInactive = Color(0xFF111328);
 const double kCardButtonSpacerHeight = 10.0;
 
 enum Gender{ male, female }
+enum MeasurementSystem{ imperial, metric }

@@ -7,12 +7,16 @@ class CardButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color bgColor;
+  final Color labelColor;
+  final Color iconColor;
 
   CardButton({
     this.onTap,
     this.icon,
     this.label,
     this.bgColor,
+    this.labelColor,
+    this.iconColor,
   });
 
   @override
@@ -28,7 +32,7 @@ class CardButton extends StatelessWidget {
                 Icon(
                   icon,
                   size: kCardButtonIconSize,
-                  color: kCardButtonIconColorActive,
+                  color: iconColor,
                 ),
                 SizedBox(
                   height: kCardButtonSpacerHeight,
@@ -36,7 +40,7 @@ class CardButton extends StatelessWidget {
                 Text(
                   label,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: labelColor,
                   ),
                 )
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/widgets/card_button.dart';
+import 'package:bmi_calc/widgets/slider_content.dart';
 import 'package:bmi_calc/constants.dart';
 
 class InputScreen extends StatefulWidget {
@@ -11,6 +12,9 @@ class InputScreen extends StatefulWidget {
 
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
+  MeasurementSystem measurementSystem;
+  double _sliderValue = 10.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +39,8 @@ class _InputScreenState extends State<InputScreen> {
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.mars,
+                            iconColor: gender == Gender.male ? kCardButtonIconColorActive : kCardButtonIconColorInactive,
+                            labelColor: gender == Gender.male ? kCardButtonLabelColorActive : kCardButtonLabelColorInactive,
                             bgColor: gender == Gender.male ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'MALE',
                             onTap: () {
@@ -45,6 +51,8 @@ class _InputScreenState extends State<InputScreen> {
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.venus,
+                            iconColor: gender == Gender.female ? kCardButtonIconColorActive : kCardButtonIconColorInactive,
+                            labelColor: gender == Gender.female ? kCardButtonLabelColorActive : kCardButtonLabelColorInactive,
                             bgColor: gender == Gender.female ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'FEMALE',
                             onTap: () {
@@ -56,38 +64,49 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Expanded(
-                    flex: 1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.rulerVertical,
-                            bgColor: kCardWrapperBgColor,
+                            iconColor: measurementSystem == MeasurementSystem.imperial ? kCardButtonIconColorActive : kCardButtonIconColorInactive,
+                            labelColor: measurementSystem == MeasurementSystem.imperial ? kCardButtonLabelColorActive : kCardButtonLabelColorInactive,
+                            bgColor: measurementSystem == MeasurementSystem.imperial ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'IMPERIAL',
+                            onTap: () {
+                              setState(() { measurementSystem = MeasurementSystem.imperial; });
+                            },
                           ),
                         ),
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.rulerHorizontal,
-                            bgColor: kCardWrapperBgColor,
+                            iconColor: measurementSystem == MeasurementSystem.metric ? kCardButtonIconColorActive : kCardButtonIconColorInactive,
+                            labelColor: measurementSystem == MeasurementSystem.metric ? kCardButtonLabelColorActive : kCardButtonLabelColorInactive,
+                            bgColor: measurementSystem == MeasurementSystem.metric ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'METRIC',
+                            onTap: () {
+                              setState(() { measurementSystem = MeasurementSystem.metric; });
+                            },
                           ),
                         ),
                       ],
                     ),
                   ),
                   Expanded(
-                    flex: 4,
                     child: CardWrapper(
                       bgColor: kCardWrapperBgColor,
-                      child: Row(
-                        children: <Widget>[
-//                          vertical slider 1
-//                          vertical slider 2
-//                          vertical slider 3
-                        ],
-                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: CardWrapper(
+                      bgColor: kCardWrapperBgColor,
+                    ),
+                  ),
+                  Expanded(
+                    child: CardWrapper(
+                      bgColor: kCardWrapperBgColor,
                     ),
                   ),
                 ],
