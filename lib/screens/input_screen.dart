@@ -13,7 +13,9 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
   MeasurementSystem measurementSystem;
-  double _sliderValue = 10.0;
+  double _height = kHeight;
+  double _weight = kWeight;
+  double _age = kDefaultAge;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,6 @@ class _InputScreenState extends State<InputScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    flex: 1,
                     child: Row( // Gender Buttons
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -95,18 +96,48 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Expanded(
-                    child: CardWrapper(
-                      bgColor: kCardWrapperBgColor,
+                    child: SliderContent(
+                      min: kHeightMin,
+                      max: kHeightMax,
+                      value: _height,
+                      label: 'HEIGHT',
+                      icon: FontAwesomeIcons.arrowUp,
+                      measurement: measurementSystem == MeasurementSystem.metric ? 'cm' : 'in',
+                      onChanged: (double newValue) {
+                        setState(() {
+                          _height = newValue;
+                        });
+                      },
                     ),
                   ),
                   Expanded(
-                    child: CardWrapper(
-                      bgColor: kCardWrapperBgColor,
+                    child: SliderContent(
+                      min: kWeightMin,
+                      max: kWeightMax,
+                      value: _weight,
+                      label: 'WEIGHT',
+                      icon: FontAwesomeIcons.weight,
+                      measurement: measurementSystem == MeasurementSystem.metric ? 'kg' : 'lb',
+                      onChanged: (double newValue) {
+                        setState(() {
+                          _weight = newValue;
+                        });
+                      },
                     ),
                   ),
                   Expanded(
-                    child: CardWrapper(
-                      bgColor: kCardWrapperBgColor,
+                    child: SliderContent(
+                      min: 0.0,
+                      max: 100.0,
+                      value: _age,
+                      label: 'AGE',
+                      icon: FontAwesomeIcons.calendar,
+                      measurement: 'yrs',
+                      onChanged: (double newValue) {
+                        setState(() {
+                          _age = newValue;
+                        });
+                      },
                     ),
                   ),
                 ],
