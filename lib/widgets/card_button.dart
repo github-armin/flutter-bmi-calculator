@@ -25,7 +25,14 @@ class CardButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(icon),
+                Icon(
+                  icon,
+                  size: kCardButtonIconSize,
+                  color: kCardButtonIconColor,
+                ),
+                SizedBox(
+                  height: kCardButtonSpacerHeight,
+                ),
                 Text(label, style: kCardButtonLabelStyle,)
               ],
             )

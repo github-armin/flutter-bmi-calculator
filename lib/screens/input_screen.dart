@@ -23,20 +23,21 @@ class InputScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: Row(
+                    child: Row( // Gender Buttons
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: CardButton(
-                            icon: FontAwesomeIcons.male,
+                            icon: FontAwesomeIcons.mars,
                             bgColor: kCardWrapperBgColor,
-                            label: 'Stuff',
+                            label: 'MALE',
                           ),
                         ),
                         Expanded(
-                          child: CardWrapper(
-//                    child: Column(),
+                          child: CardButton(
+                            icon: FontAwesomeIcons.venus,
                             bgColor: kCardWrapperBgColor,
+                            label: 'FEMALE',
                           ),
                         ),
                       ],
