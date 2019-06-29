@@ -4,12 +4,18 @@ import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/widgets/card_button.dart';
 import 'package:bmi_calc/constants.dart';
 
-class InputScreen extends StatelessWidget {
+class InputScreen extends StatefulWidget {
+  @override
+  _InputScreenState createState() => _InputScreenState();
+}
+
+class _InputScreenState extends State<InputScreen> {
+  Gender gender;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator')
+        title: Text('BMI CALCULATOR')
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -29,15 +35,21 @@ class InputScreen extends StatelessWidget {
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.mars,
-                            bgColor: kCardWrapperBgColor,
+                            bgColor: gender == Gender.male ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'MALE',
+                            onTap: () {
+                              setState(() { gender = Gender.male; });
+                            },
                           ),
                         ),
                         Expanded(
                           child: CardButton(
                             icon: FontAwesomeIcons.venus,
-                            bgColor: kCardWrapperBgColor,
+                            bgColor: gender == Gender.female ? kCardButtonBgColorActive : kCardButtonBgColorInactive,
                             label: 'FEMALE',
+                            onTap: () {
+                              setState(() { gender = Gender.female; });
+                            },
                           ),
                         ),
                       ],
@@ -49,15 +61,17 @@ class InputScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
-                          child: CardWrapper(
-//                    child: Column(),
+                          child: CardButton(
+                            icon: FontAwesomeIcons.rulerVertical,
                             bgColor: kCardWrapperBgColor,
+                            label: 'IMPERIAL',
                           ),
                         ),
                         Expanded(
-                          child: CardWrapper(
-//                    child: Container(),
+                          child: CardButton(
+                            icon: FontAwesomeIcons.rulerHorizontal,
                             bgColor: kCardWrapperBgColor,
+                            label: 'METRIC',
                           ),
                         ),
                       ],

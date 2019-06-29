@@ -28,12 +28,17 @@ class CardButton extends StatelessWidget {
                 Icon(
                   icon,
                   size: kCardButtonIconSize,
-                  color: kCardButtonIconColor,
+                  color: kCardButtonIconColorActive,
                 ),
                 SizedBox(
                   height: kCardButtonSpacerHeight,
                 ),
-                Text(label, style: kCardButtonLabelStyle,)
+                Text(
+                  label,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                )
               ],
             )
         )
