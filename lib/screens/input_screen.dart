@@ -21,7 +21,7 @@ class InputScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -45,6 +45,32 @@ class InputScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        Expanded(
+                          child: CardWrapper(
+//                    child: Column(),
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                        Expanded(
+                          child: CardWrapper(
+//                    child: Container(),
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: CardWrapper(
+//                    child: Column(),
+                            bgColor: kCardWrapperBgColor,
+                          ),
+                        ),
                         Expanded(
                           child: CardWrapper(
 //                    child: Column(),
