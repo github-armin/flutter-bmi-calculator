@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
+import 'package:bmi_calc/widgets/card_button.dart';
 import 'package:bmi_calc/constants.dart';
 
 class InputScreen extends StatelessWidget {
@@ -7,11 +9,10 @@ class InputScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('This is my app')
+        title: Text('BMI Calculator')
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-//        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Expanded(
             flex: 6,
@@ -26,9 +27,10 @@ class InputScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
-                          child: CardWrapper(
-//                    child: Column(),
+                          child: CardButton(
+                            icon: FontAwesomeIcons.male,
                             bgColor: kCardWrapperBgColor,
+                            label: 'Stuff',
                           ),
                         ),
                         Expanded(
@@ -61,29 +63,16 @@ class InputScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 3,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: CardWrapper(
-//                    child: Column(),
-                            bgColor: kCardWrapperBgColor,
-                          ),
-                        ),
-                        Expanded(
-                          child: CardWrapper(
-//                    child: Column(),
-                            bgColor: kCardWrapperBgColor,
-                          ),
-                        ),
-                        Expanded(
-                          child: CardWrapper(
-//                    child: Container(),
-                            bgColor: kCardWrapperBgColor,
-                          ),
-                        ),
-                      ],
+                    flex: 4,
+                    child: CardWrapper(
+                      bgColor: kCardWrapperBgColor,
+                      child: Row(
+                        children: <Widget>[
+//                          vertical slider 1
+//                          vertical slider 2
+//                          vertical slider 3
+                        ],
+                      ),
                     ),
                   ),
                 ],

@@ -6,3 +6,4 @@ double kCardWrapperBorderRadius = 10.0;
 double kScreenPadding = kCardWrapperMargin / 2;
 Color kCardWrapperBgColor = Color(0xFF1D1E33);
 Color kSubmitButtonColor = Color(0xFFEB1555);
+TextStyle kCardButtonLabelStyle = TextStyle();
