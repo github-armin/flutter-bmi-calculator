@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_calc/constants.dart';
+import 'dart:math';
 
 class BMI {
   bool validate({
@@ -25,7 +26,12 @@ class BMI {
     double weight,
     int age,
   }) {
-    return 0.0;
+    if (measurementSystem == MeasurementSystem.metric) {
+      return weight / pow(height / 100, 2);
+    }
+    if (measurementSystem == MeasurementSystem.imperial) {
+      return weight * 703 / pow(height, 2);
+    }
   }
 
   Future<void> alert(BuildContext context) {
@@ -33,11 +39,11 @@ class BMI {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Not in stock'),
-          content: const Text('This item is no longer available'),
+          title: Text('Error'),
+          content: const Text('Please fill out all the required fields'),
           actions: <Widget>[
             FlatButton(
-              child: Text('Ok'),
+              child: Text('RETRY'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

@@ -7,7 +7,8 @@ const Color kCardWrapperBgColor = Color(0xFF1D1E33);
 
 const double kScreenPadding = kCardWrapperMargin / 2;
 
-const Color kSubmitButtonColor = Color(0xFFEB1555);
+const Color kCalculateButtonColor = Color(0xFFEB1555);
+const Color kResetButtonColor = Colors.blue;
 
 const double kCardButtonIconSize = 40.0;
 const Color kCardButtonIconColorActive = Colors.white;
@@ -45,7 +46,7 @@ const double kHeightMax = 225.0;
 
 const double kWeight = 135.0;
 const double kWeightMin = 5.0;
-const double kWeightMax = 400.0;
+const double kWeightMax = 275.0;
 
 const double kAge = 21.0;
 const double kAgeMin = 0.0;
