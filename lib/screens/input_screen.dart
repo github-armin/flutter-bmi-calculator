@@ -3,7 +3,28 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calc/widgets/card_button.dart';
 import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/slider_content.dart';
+import 'package:bmi_calc/helper/bmi.dart';
 import 'package:bmi_calc/constants.dart';
+
+Future<void> _alert(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Not in stock'),
+        content: const Text('This item is no longer available'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Ok'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
 
 class InputScreen extends StatefulWidget {
   @override
@@ -16,6 +37,8 @@ class _InputScreenState extends State<InputScreen> {
   double _height = kHeight;
   double _weight = kWeight;
   double _age = kAge;
+
+  BMI bmi = new BMI();
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +172,29 @@ class _InputScreenState extends State<InputScreen> {
             flex: 1,
             child: SubmitButton(
               bgColor: kSubmitButtonColor,
-              label: 'CALCULATE'
+              label: 'CALCULATE',
+              onTap: () {
+                bool validFields = bmi.validate(
+                  gender: gender,
+                  measurementSystem: measurementSystem,
+                  weight: _weight,
+                  height: _height,
+                  age: _age.toInt(),
+                );
+                if (validFields) {
+                  double bmiResult = bmi.calculate(
+                    gender: gender,
+                    measurementSystem: measurementSystem,
+                    weight: _weight,
+                    height: _height,
+                    age: _age.toInt(),
+                  );
+                  //TODO: navigation push to result route
+                }
+                else {
+                  _alert(context);
+                }
+              },
             )
           ),
         ],
