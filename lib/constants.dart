@@ -31,6 +31,12 @@ const TextStyle kSliderContentMeasurementTextStyle = TextStyle(
   fontSize: 18.0,
 );
 
+const TextStyle kSubmitButtonCalculateTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 23.0,
+  fontWeight: FontWeight.bold,
+);
+
 const double kSliderIconSize = 25.0;
 
 const double kHeight = 50.0;
@@ -41,4 +47,6 @@ const double kWeight = 135.0;
 const double kWeightMin = 5.0;
 const double kWeightMax = 400.0;
 
-const double kDefaultAge = 21.0;
+const double kAge = 21.0;
+const double kAgeMin = 0.0;
+const double kAgeMax = 90.0;

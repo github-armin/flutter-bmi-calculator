@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/widgets/card_button.dart';
+import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/slider_content.dart';
 import 'package:bmi_calc/constants.dart';
 
@@ -15,7 +15,7 @@ class _InputScreenState extends State<InputScreen> {
   MeasurementSystem measurementSystem;
   double _height = kHeight;
   double _weight = kWeight;
-  double _age = kDefaultAge;
+  double _age = kAge;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class _InputScreenState extends State<InputScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
+                          flex: 1,
                           child: CardButton(
                             icon: FontAwesomeIcons.mars,
                             iconColor: gender == Gender.male ? kCardButtonIconColorActive : kCardButtonIconColorInactive,
@@ -127,8 +128,8 @@ class _InputScreenState extends State<InputScreen> {
                   ),
                   Expanded(
                     child: SliderContent(
-                      min: 0.0,
-                      max: 100.0,
+                      min: kAgeMin,
+                      max: kAgeMax,
                       value: _age,
                       label: 'AGE',
                       icon: FontAwesomeIcons.calendar,
@@ -146,11 +147,10 @@ class _InputScreenState extends State<InputScreen> {
           ),
           Expanded(
             flex: 1,
-            child: Container(
-              color: kSubmitButtonColor,
-              margin: EdgeInsets.only(top: kScreenPadding),
-              child: Text('placeholder for a button')
-            ),
+            child: SubmitButton(
+              bgColor: kSubmitButtonColor,
+              label: 'CALCULATE'
+            )
           ),
         ],
       ),
