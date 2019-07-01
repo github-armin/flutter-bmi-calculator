@@ -8,6 +8,38 @@ class ResultScreen extends StatelessWidget {
 
   ResultScreen({this.bmiResult});
 
+  String bmiStatus(bmiResult) {
+    if (bmiResult < 18.5) {
+      return 'Underweight';
+    }
+    else if (bmiResult >= 18.5 && bmiResult < 25) {
+      return 'Normal';
+    }
+    else if (bmiResult >= 25 && bmiResult < 30) {
+      return 'Overweight';
+    }
+    else if (bmiResult >= 30) {
+      return 'Obese';
+    }
+    return '';
+  }
+
+  String bmiAdvice(bmiResult) {
+    if (bmiResult < 18.5) {
+      return 'Try eating more.';
+    }
+    else if (bmiResult >= 18.5 && bmiResult < 25) {
+      return 'Good job! Keep up the good work!';
+    }
+    else if (bmiResult >= 25 && bmiResult < 30) {
+      return 'Try exercising more.';
+    }
+    else if (bmiResult >= 30) {
+      return 'Try sticking to a healthy diet and exercise more.';
+    }
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,18 +50,33 @@ class ResultScreen extends StatelessWidget {
           Expanded(
             flex: 6,
             child: Container(
-              alignment: Alignment(0, 0),
               padding: EdgeInsets.all(kScreenPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Your BMI Results', style: kBMIResultScreenTitleTextStyle),
+                  Container(
+                    alignment: Alignment(0, 0),
+                    margin: EdgeInsets.only(bottom: 10.0),
+                    child: Text('Your BMI Results', style: kBMIResultScreenTitleTextStyle),
+                  ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(kScreenPadding),
                       child: CardWrapper(
                         bgColor: kCardWrapperBgColor,
-                        child: Text(bmiResult.toStringAsFixed(1)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Text(bmiStatus(bmiResult), style: TextStyle(
+                              color: bmiResult < 18.5 ? Colors.yellow.shade300 :
+                              bmiResult >= 18.5 && bmiResult < 25 ? Colors.green :
+                              bmiResult >= 25 && bmiResult < 30 ? Colors.orange : Colors.red,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),),
+                            Text(bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
+                            Text(bmiAdvice(bmiResult), style: kBMIResultScreenAdviceTextStyle),
+                          ],
+                        )
                       ),
                     ),
                   ),
@@ -52,15 +99,3 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
-
-
-//Text(bmiResult.toStringAsFixed(1))
-
-//Container(
-//padding: EdgeInsets.all(kScreenPadding),
-//child: CardWrapper(
-//bgColor: kCardWrapperBgColor,
-//child: Text(bmiResult.toStringAsFixed(1)),
-//),
-//),
-//Text('Your BMI Results', style: kBMIResultScreenTitleTextStyle),

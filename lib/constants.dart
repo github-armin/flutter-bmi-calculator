@@ -57,3 +57,14 @@ const TextStyle kBMIResultScreenTitleTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle kBMIResultScreenBMITextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 120.0,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle kBMIResultScreenAdviceTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 20.0,
+);
