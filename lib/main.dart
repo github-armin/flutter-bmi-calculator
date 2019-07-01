@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:bmi_calc/screens/input_screen.dart';
 import 'package:bmi_calc/screens/result_screen.dart';
 
-void main() => runApp(BMICalculatorApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(BMICalculatorApp());
+    }
+  );
+}
 
 class BMICalculatorApp extends StatelessWidget {
   @override

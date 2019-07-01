@@ -59,6 +59,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(title: Text('BMI CALCULATOR')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
