@@ -18,10 +18,22 @@ class ResultScreen extends StatelessWidget {
           Expanded(
             flex: 6,
             child: Container(
+              alignment: Alignment(0, 0),
               padding: EdgeInsets.all(kScreenPadding),
-              child: CardWrapper(
-                bgColor: kCardWrapperBgColor,
-                child: Text(bmiResult.toStringAsFixed(1)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Your BMI Results', style: kBMIResultScreenTitleTextStyle),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(kScreenPadding),
+                      child: CardWrapper(
+                        bgColor: kCardWrapperBgColor,
+                        child: Text(bmiResult.toStringAsFixed(1)),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -43,3 +55,12 @@ class ResultScreen extends StatelessWidget {
 
 
 //Text(bmiResult.toStringAsFixed(1))
+
+//Container(
+//padding: EdgeInsets.all(kScreenPadding),
+//child: CardWrapper(
+//bgColor: kCardWrapperBgColor,
+//child: Text(bmiResult.toStringAsFixed(1)),
+//),
+//),
+//Text('Your BMI Results', style: kBMIResultScreenTitleTextStyle),

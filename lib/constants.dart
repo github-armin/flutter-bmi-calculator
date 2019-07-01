@@ -51,3 +51,9 @@ const double kWeightMax = 275.0;
 const double kAge = 21.0;
 const double kAgeMin = 0.0;
 const double kAgeMax = 90.0;
+
+const TextStyle kBMIResultScreenTitleTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
