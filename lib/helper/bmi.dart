@@ -32,6 +32,7 @@ class BMI {
     if (measurementSystem == MeasurementSystem.imperial) {
       return weight * 703 / pow(height, 2);
     }
+    return 0.0;
   }
 
   Future<void> alert(BuildContext context) {

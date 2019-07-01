@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
+import 'package:bmi_calc/size_config.dart';
 import 'package:bmi_calc/constants.dart';
 
 class SliderContent extends StatelessWidget {
@@ -22,6 +23,7 @@ class SliderContent extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return CardWrapper(
       bgColor: kCardWrapperBgColor,
       child: Row(
@@ -34,7 +36,7 @@ class SliderContent extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: kSliderIconSize,
+                  size: SizeConfig.iconSize,
                   color: kCardButtonIconColorActive,
                 ),
                 SizedBox(

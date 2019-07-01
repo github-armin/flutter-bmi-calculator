@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
+import 'package:bmi_calc/size_config.dart';
 import 'package:bmi_calc/constants.dart';
 
 class CardButton extends StatelessWidget {
@@ -21,6 +22,7 @@ class CardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return GestureDetector(
         onTap: onTap,
         child: CardWrapper(
@@ -31,7 +33,7 @@ class CardButton extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: kCardButtonIconSize,
+                  size: SizeConfig.iconSize,
                   color: iconColor,
                 ),
                 SizedBox(

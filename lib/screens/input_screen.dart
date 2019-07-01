@@ -14,9 +14,9 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
   MeasurementSystem measurementSystem;
-  double _height = kHeight;
-  double _weight = kWeight;
-  double _age = kAge;
+  double height = kHeight;
+  double weight = kWeight;
+  double age = kAge;
 
   BMI bmi = new BMI();
 
@@ -104,13 +104,13 @@ class _InputScreenState extends State<InputScreen> {
                     child: SliderContent(
                       min: kHeightMin,
                       max: kHeightMax,
-                      value: _height,
+                      value: height,
                       label: 'HEIGHT',
                       icon: FontAwesomeIcons.arrowUp,
                       measurement: measurementSystem == MeasurementSystem.metric ? 'cm' : 'in',
                       onChanged: (double newValue) {
                         setState(() {
-                          _height = newValue;
+                          height = newValue;
                         });
                       },
                     ),
@@ -119,13 +119,13 @@ class _InputScreenState extends State<InputScreen> {
                     child: SliderContent(
                       min: kWeightMin,
                       max: kWeightMax,
-                      value: _weight,
+                      value: weight,
                       label: 'WEIGHT',
                       icon: FontAwesomeIcons.weight,
                       measurement: measurementSystem == MeasurementSystem.metric ? 'kg' : 'lb',
                       onChanged: (double newValue) {
                         setState(() {
-                          _weight = newValue;
+                          weight = newValue;
                         });
                       },
                     ),
@@ -134,13 +134,13 @@ class _InputScreenState extends State<InputScreen> {
                     child: SliderContent(
                       min: kAgeMin,
                       max: kAgeMax,
-                      value: _age,
+                      value: age,
                       label: 'AGE',
                       icon: FontAwesomeIcons.calendar,
                       measurement: 'yrs',
                       onChanged: (double newValue) {
                         setState(() {
-                          _age = newValue;
+                          age = newValue;
                         });
                       },
                     ),
@@ -158,21 +158,30 @@ class _InputScreenState extends State<InputScreen> {
                 bool validFields = bmi.validate(
                   gender: gender,
                   measurementSystem: measurementSystem,
-                  weight: _weight,
-                  height: _height,
-                  age: _age.toInt(),
+                  weight: weight,
+                  height: height,
+                  age: age.toInt(),
                 );
                 if (validFields) {
                   double bmiResult = bmi.calculate(
                     gender: gender,
                     measurementSystem: measurementSystem,
-                    weight: _weight,
-                    height: _height,
-                    age: _age.toInt(),
+                    weight: weight,
+                    height: height,
+                    age: age.toInt(),
                   );
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ResultScreen(bmiResult: bmiResult))
+                    MaterialPageRoute(
+                      builder: (context) => ResultScreen(
+                        bmiResult: bmiResult,
+//                        age: age,
+//                        height: height,
+//                        weight: weight,
+//                        gender: gender,
+//                        measurementSystem: measurementSystem
+                      )
+                    )
                   );
                 }
                 else {
