@@ -11,7 +11,6 @@ class InputScreen extends StatefulWidget {
   @override
   _InputScreenState createState() => _InputScreenState();
 }
-
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
   MeasurementSystem measurementSystem;
