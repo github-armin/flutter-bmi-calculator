@@ -40,6 +40,22 @@ class ResultScreen extends StatelessWidget {
     return '';
   }
 
+  Color bmiColor(bmiResult) {
+    if (bmiResult < 18.5) {
+      return Colors.yellow.shade300;
+    }
+    else if (bmiResult >= 18.5 && bmiResult < 25) {
+      return Colors.green;
+    }
+    else if (bmiResult >= 25 && bmiResult < 30) {
+      return Colors.orange;
+    }
+    else if (bmiResult >= 30) {
+      return Colors.red;
+    }
+    return Colors.white;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,14 +83,15 @@ class ResultScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Text(bmiStatus(bmiResult), style: TextStyle(
-                              color: bmiResult < 18.5 ? Colors.yellow.shade300 :
-                              bmiResult >= 18.5 && bmiResult < 25 ? Colors.green :
-                              bmiResult >= 25 && bmiResult < 30 ? Colors.orange : Colors.red,
                               fontSize: 20.0,
+                              color: bmiColor(bmiResult),
                               fontWeight: FontWeight.bold,
                             ),),
                             Text(bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
-                            Text(bmiAdvice(bmiResult), style: kBMIResultScreenAdviceTextStyle),
+                            Text(bmiAdvice(bmiResult),
+                              style: kBMIResultScreenAdviceTextStyle,
+                              textAlign: TextAlign.center,
+                            ),
                           ],
                         )
                       ),
