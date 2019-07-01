@@ -5,6 +5,7 @@ import 'package:bmi_calc/widgets/card_button.dart';
 import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/card_slider.dart';
 import 'package:bmi_calc/helper/bmi.dart';
+import 'package:bmi_calc/size_config.dart';
 import 'package:bmi_calc/constants.dart';
 
 class InputScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _InputScreenState extends State<InputScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -33,7 +35,7 @@ class _InputScreenState extends State<InputScreen> {
           Expanded(
             flex: 6,
             child: Container(
-              padding: EdgeInsets.all(kScreenPadding),
+              padding: EdgeInsets.all(SizeConfig.screenPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
