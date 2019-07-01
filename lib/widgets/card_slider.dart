@@ -3,7 +3,7 @@ import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/size_config.dart';
 import 'package:bmi_calc/constants.dart';
 
-class SliderContent extends StatelessWidget {
+class CardSlider extends StatelessWidget {
   final IconData icon;
   final String label;
   final double min;
@@ -12,7 +12,7 @@ class SliderContent extends StatelessWidget {
   final String measurement;
   final double value;
 
-  SliderContent({
+  CardSlider({
     this.icon,
     this.label,
     this.min,
@@ -36,7 +36,7 @@ class SliderContent extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: SizeConfig.iconSize,
+                  size: SizeConfig.cardSliderIconSize,
                   color: kCardButtonIconColorActive,
                 ),
                 SizedBox(

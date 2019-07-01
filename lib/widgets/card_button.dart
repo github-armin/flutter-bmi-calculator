@@ -33,7 +33,7 @@ class CardButton extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: SizeConfig.iconSize,
+                  size: SizeConfig.cardButtonIconSize,
                   color: iconColor,
                 ),
                 SizedBox(

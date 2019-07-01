@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calc/screens/result_screen.dart';
 import 'package:bmi_calc/widgets/card_button.dart';
 import 'package:bmi_calc/widgets/submit_button.dart';
-import 'package:bmi_calc/widgets/slider_content.dart';
+import 'package:bmi_calc/widgets/card_slider.dart';
 import 'package:bmi_calc/helper/bmi.dart';
 import 'package:bmi_calc/constants.dart';
 
@@ -101,7 +101,7 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Expanded(
-                    child: SliderContent(
+                    child: CardSlider(
                       min: kHeightMin,
                       max: kHeightMax,
                       value: height,
@@ -116,7 +116,7 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Expanded(
-                    child: SliderContent(
+                    child: CardSlider(
                       min: kWeightMin,
                       max: kWeightMax,
                       value: weight,
@@ -131,7 +131,7 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Expanded(
-                    child: SliderContent(
+                    child: CardSlider(
                       min: kAgeMin,
                       max: kAgeMax,
                       value: age,

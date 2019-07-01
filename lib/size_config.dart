@@ -7,6 +7,8 @@ class SizeConfig {
   static double blockSizeHorizontal;
   static double blockSizeVertical;
   static double iconSize;
+  static double cardSliderIconSize;
+  static double cardButtonIconSize;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -15,5 +17,7 @@ class SizeConfig {
     blockSizeHorizontal = screenWidth / 100;
     blockSizeVertical = screenHeight / 100;
     iconSize = screenHeight / 20;
+    cardSliderIconSize = screenHeight / 30;
+    cardButtonIconSize = screenHeight / 22;
   }
 }
