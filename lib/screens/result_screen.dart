@@ -2,52 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/constants.dart';
+import 'package:bmi_calc/input_config.dart';
 
-class ResultScreen extends StatefulWidget {
-  final Gender gender;
-  final MeasurementSystem measurementSystem;
-  final double height;
-  final double weight;
-  final double age;
+class ResultScreen extends StatelessWidget {
   final double bmiResult;
 
-  ResultScreen({
-    Key key,
-    this.gender,
-    this.measurementSystem,
-    this.height,
-    this.weight,
-    this.age,
-    this.bmiResult
-  }) : super(key: key);
+  ResultScreen({this.bmiResult});
 
-  @override
-  _ResultScreenState createState() => _ResultScreenState(
-    gender,
-    measurementSystem,
-    height,
-    weight,
-    age,
-    bmiResult,
-  );
-}
-
-class _ResultScreenState extends State<ResultScreen> {
-  Gender gender;
-  MeasurementSystem measurementSystem;
-  double height;
-  double weight;
-  double age;
-  double bmiResult;
-
-  _ResultScreenState(
-    this.gender,
-    this.measurementSystem,
-    this.height,
-    this.weight,
-    this.age,
-    this.bmiResult,
-  );
   String bmiStatus(bmiResult) {
     if (bmiResult < 18.5) {
       return 'Underweight';
@@ -123,13 +84,13 @@ class _ResultScreenState extends State<ResultScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Text(bmiStatus(widget.bmiResult), style: TextStyle(
+                            Text(bmiStatus(bmiResult), style: TextStyle(
                               fontSize: 20.0,
-                              color: bmiColor(widget.bmiResult),
+                              color: bmiColor(bmiResult),
                               fontWeight: FontWeight.bold,
                             ),),
-                            Text(widget.bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
-                            Text(bmiAdvice(widget.bmiResult),
+                            Text(bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
+                            Text(bmiAdvice(bmiResult),
                               style: kBMIResultScreenAdviceTextStyle,
                               textAlign: TextAlign.center,
                             ),
@@ -148,13 +109,7 @@ class _ResultScreenState extends State<ResultScreen> {
               bgColor: kResetButtonColor,
               label: 'RESET',
               onTap: () {
-                setState(() {
-                  gender = null;
-                  measurementSystem = null;
-                  age = kAge;
-                  height = kHeight;
-                  weight = kWeight;
-                });
+                InputConfig().init(context);
                 Navigator.pop(context);
               },
             ),

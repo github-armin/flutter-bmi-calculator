@@ -6,53 +6,26 @@ import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/card_slider.dart';
 import 'package:bmi_calc/helper/bmi.dart';
 import 'package:bmi_calc/size_config.dart';
+import 'package:bmi_calc/input_config.dart';
 import 'package:bmi_calc/constants.dart';
 
 class InputScreen extends StatefulWidget {
-  final Gender gender;
-  final MeasurementSystem measurementSystem;
-  final double height;
-  final double weight;
-  final double age;
-
-  InputScreen({
-    Key key,
-    this.gender,
-    this.measurementSystem,
-    this.height,
-    this.weight,
-    this.age,
-  }) : super(key: key);
-
   @override
-  _InputScreenState createState() => _InputScreenState(
-    gender,
-    measurementSystem,
-    height,
-    weight,
-    age,
-  );
+  _InputScreenState createState() => _InputScreenState();
 }
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
   MeasurementSystem measurementSystem;
-  double height;
-  double weight;
-  double age;
-
-  _InputScreenState(
-    this.gender,
-    this.measurementSystem,
-    this.height,
-    this.weight,
-    this.age,
-  );
+  double height = kHeight;
+  double weight = kWeight;
+  double age = kAge;
 
   BMI bmi = new BMI();
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    InputConfig().init(context);
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -206,12 +179,12 @@ class _InputScreenState extends State<InputScreen> {
                     MaterialPageRoute(
                       builder: (context) => ResultScreen(
                         bmiResult: bmiResult,
-                        age: age,
-                        height: height,
-                        weight: weight,
-                        gender: gender,
-                        measurementSystem: measurementSystem
-                      )
+//                        age: age,
+//                        height: height,
+//                        weight: weight,
+//                        gender: gender,
+//                        measurementSystem: measurementSystem
+                      ),
                     )
                   );
                 }

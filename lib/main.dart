@@ -23,11 +23,7 @@ class BMICalculatorApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => InputScreen(
-          height: kHeight,
-          weight: kWeight,
-          age: kAge,
-        ),
+        '/': (context) => InputScreen(),
         '/result': (context) => ResultScreen(),
       },
     );

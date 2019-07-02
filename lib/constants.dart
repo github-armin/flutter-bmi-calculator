@@ -19,8 +19,8 @@ const Color kCardButtonBgColorActive = kCardWrapperBgColor;
 const Color kCardButtonBgColorInactive = Color(0xFF111328);
 const double kCardButtonSpacerHeight = 10.0;
 
-enum Gender{ male, female }
-enum MeasurementSystem{ imperial, metric }
+enum Gender{ male, female, reset }
+enum MeasurementSystem{ imperial, metric, reset }
 
 const TextStyle kSliderContentValueTextStyle = TextStyle(
   color: Colors.white,
