@@ -10,6 +10,10 @@ class SizeConfig {
   static double cardWrapperMargin;
   static double bmiResultFontSize;
   static double bmiAdviceFontSize;
+  static double cardSliderValue;
+  static double cardSliderMeasurementType;
+  static double cardButtonLabelFontSize;
+  static double cardSliderLabelFontSize;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -21,5 +25,9 @@ class SizeConfig {
     cardWrapperMargin = screenWidth / 75;
     bmiResultFontSize = screenWidth / 4.67;
     bmiAdviceFontSize = screenWidth / 20;
+    cardSliderValue = screenWidth / 15;
+    cardSliderMeasurementType = screenWidth / 20;
+    cardButtonLabelFontSize = screenWidth / 30;
+    cardSliderLabelFontSize = screenWidth / 30;
   }
 }

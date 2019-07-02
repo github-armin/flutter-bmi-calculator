@@ -43,6 +43,7 @@ class CardButton extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: labelColor,
+                    fontSize: SizeConfig.cardButtonLabelFontSize,
                   ),
                 )
               ],

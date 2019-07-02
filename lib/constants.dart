@@ -23,11 +23,6 @@ const double kCardButtonSpacerHeight = 10.0;
 enum Gender{ male, female, reset }
 enum MeasurementSystem{ imperial, metric, reset }
 
-const TextStyle kSliderContentValueTextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 30.0,
-  fontWeight: FontWeight.bold,
-);
 const TextStyle kSliderContentMeasurementTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 18.0,

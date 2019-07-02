@@ -46,6 +46,7 @@ class CardSlider extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: kCardButtonLabelColorActive,
+                    fontSize: SizeConfig.cardButtonLabelFontSize,
                   ),
                 )
               ],
@@ -79,12 +80,19 @@ class CardSlider extends StatelessWidget {
               children: <Widget>[
                 Text(
                   value.toInt().toString(),
-                  style: kSliderContentValueTextStyle,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: SizeConfig.cardSliderValue,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(width: 5.0),
                 Text(
                   measurement,
-                  style: kSliderContentMeasurementTextStyle,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: SizeConfig.cardSliderMeasurementType,
+                  ),
                 ),
               ],
             )
