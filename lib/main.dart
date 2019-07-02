@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bmi_calc/screens/input_screen.dart';
 import 'package:bmi_calc/screens/result_screen.dart';
+import 'package:bmi_calc/constants.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -22,7 +23,11 @@ class BMICalculatorApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => InputScreen(),
+        '/': (context) => InputScreen(
+          height: kHeight,
+          weight: kWeight,
+          age: kAge,
+        ),
         '/result': (context) => ResultScreen(),
       },
     );

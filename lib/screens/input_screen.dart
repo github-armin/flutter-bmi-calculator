@@ -9,15 +9,44 @@ import 'package:bmi_calc/size_config.dart';
 import 'package:bmi_calc/constants.dart';
 
 class InputScreen extends StatefulWidget {
+  final Gender gender;
+  final MeasurementSystem measurementSystem;
+  final double height;
+  final double weight;
+  final double age;
+
+  InputScreen({
+    Key key,
+    this.gender,
+    this.measurementSystem,
+    this.height,
+    this.weight,
+    this.age,
+  }) : super(key: key);
+
   @override
-  _InputScreenState createState() => _InputScreenState();
+  _InputScreenState createState() => _InputScreenState(
+    gender,
+    measurementSystem,
+    height,
+    weight,
+    age,
+  );
 }
 class _InputScreenState extends State<InputScreen> {
   Gender gender;
   MeasurementSystem measurementSystem;
-  double height = kHeight;
-  double weight = kWeight;
-  double age = kAge;
+  double height;
+  double weight;
+  double age;
+
+  _InputScreenState(
+    this.gender,
+    this.measurementSystem,
+    this.height,
+    this.weight,
+    this.age,
+  );
 
   BMI bmi = new BMI();
 
@@ -177,11 +206,11 @@ class _InputScreenState extends State<InputScreen> {
                     MaterialPageRoute(
                       builder: (context) => ResultScreen(
                         bmiResult: bmiResult,
-//                        age: age,
-//                        height: height,
-//                        weight: weight,
-//                        gender: gender,
-//                        measurementSystem: measurementSystem
+                        age: age,
+                        height: height,
+                        weight: weight,
+                        gender: gender,
+                        measurementSystem: measurementSystem
                       )
                     )
                   );

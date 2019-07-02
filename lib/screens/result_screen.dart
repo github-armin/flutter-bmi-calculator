@@ -3,11 +3,51 @@ import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/constants.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
+  final Gender gender;
+  final MeasurementSystem measurementSystem;
+  final double height;
+  final double weight;
+  final double age;
   final double bmiResult;
 
-  ResultScreen({this.bmiResult});
+  ResultScreen({
+    Key key,
+    this.gender,
+    this.measurementSystem,
+    this.height,
+    this.weight,
+    this.age,
+    this.bmiResult
+  }) : super(key: key);
 
+  @override
+  _ResultScreenState createState() => _ResultScreenState(
+    gender,
+    measurementSystem,
+    height,
+    weight,
+    age,
+    bmiResult,
+  );
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  Gender gender;
+  MeasurementSystem measurementSystem;
+  double height;
+  double weight;
+  double age;
+  double bmiResult;
+
+  _ResultScreenState(
+    this.gender,
+    this.measurementSystem,
+    this.height,
+    this.weight,
+    this.age,
+    this.bmiResult,
+  );
   String bmiStatus(bmiResult) {
     if (bmiResult < 18.5) {
       return 'Underweight';
@@ -83,13 +123,13 @@ class ResultScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Text(bmiStatus(bmiResult), style: TextStyle(
+                            Text(bmiStatus(widget.bmiResult), style: TextStyle(
                               fontSize: 20.0,
-                              color: bmiColor(bmiResult),
+                              color: bmiColor(widget.bmiResult),
                               fontWeight: FontWeight.bold,
                             ),),
-                            Text(bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
-                            Text(bmiAdvice(bmiResult),
+                            Text(widget.bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
+                            Text(bmiAdvice(widget.bmiResult),
                               style: kBMIResultScreenAdviceTextStyle,
                               textAlign: TextAlign.center,
                             ),
@@ -108,6 +148,13 @@ class ResultScreen extends StatelessWidget {
               bgColor: kResetButtonColor,
               label: 'RESET',
               onTap: () {
+                setState(() {
+                  gender = null;
+                  measurementSystem = null;
+                  age = kAge;
+                  height = kHeight;
+                  weight = kWeight;
+                });
                 Navigator.pop(context);
               },
             ),
