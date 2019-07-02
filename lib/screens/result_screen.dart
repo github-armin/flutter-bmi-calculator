@@ -3,6 +3,7 @@ import 'package:bmi_calc/widgets/submit_button.dart';
 import 'package:bmi_calc/widgets/card_wrapper.dart';
 import 'package:bmi_calc/constants.dart';
 import 'package:bmi_calc/input_config.dart';
+import 'package:bmi_calc/size_config.dart';
 
 class ResultScreen extends StatelessWidget {
   final double bmiResult;
@@ -59,6 +60,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(title: Text('BMI CALCULATOR')),
@@ -89,9 +91,15 @@ class ResultScreen extends StatelessWidget {
                               color: bmiColor(bmiResult),
                               fontWeight: FontWeight.bold,
                             ),),
-                            Text(bmiResult.toStringAsFixed(1), style: kBMIResultScreenBMITextStyle),
-                            Text(bmiAdvice(bmiResult),
-                              style: kBMIResultScreenAdviceTextStyle,
+                            Text(bmiResult.toStringAsFixed(1), style: TextStyle(
+                              color: Colors.white,
+                              fontSize: SizeConfig.bmiResultFontSize,
+                              fontWeight: FontWeight.bold,
+                            ),),
+                            Text(bmiAdvice(bmiResult), style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.bmiAdviceFontSize,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],

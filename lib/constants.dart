@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'size_config.dart';
 
 const double kCardWrapperPadding = 10.0;
 const double kCardWrapperMargin = 10.0;
@@ -56,15 +57,4 @@ const TextStyle kBMIResultScreenTitleTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
-);
-
-const TextStyle kBMIResultScreenBMITextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 120.0,
-  fontWeight: FontWeight.bold,
-);
-
-const TextStyle kBMIResultScreenAdviceTextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 20.0,
 );
